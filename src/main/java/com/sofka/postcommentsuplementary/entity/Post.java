@@ -51,6 +51,9 @@ public class Post {
         this.numberOfLikes = 0;
     }
 
+    public Post() {
+    }
+
     //methods
 
     public Integer getPostId() {

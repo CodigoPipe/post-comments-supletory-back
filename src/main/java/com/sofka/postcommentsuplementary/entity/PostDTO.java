@@ -39,6 +39,9 @@ public class PostDTO {
         this.numberOfLikes = 0;
     }
 
+    public PostDTO() {
+    }
+
     //methods
 
     public Integer getPostId() {

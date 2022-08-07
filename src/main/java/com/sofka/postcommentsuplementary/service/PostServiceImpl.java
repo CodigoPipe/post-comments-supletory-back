@@ -8,21 +8,25 @@ import com.sofka.postcommentsuplementary.repository.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService{
 
     @Autowired
     PostRepo postRepo;
 
-    @Autowired
-    MapperPost mapperPost;
-
 
     @Override
     public PostDTO createPost(PostDTO postDTO) {
 
-        Post post = mapperPost.returnPost(postDTO);
-        return mapperPost.returnPostDTO(postRepo.save(post));
+        Post post = MapperPost.returnPost(postDTO);
+        return MapperPost.returnPostDTO(postRepo.save(post));
+    }
+
+    @Override
+    public List<Post> findAllPost() {
+        return postRepo.findAll();
     }
 
 
