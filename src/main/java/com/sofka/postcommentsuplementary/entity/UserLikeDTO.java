@@ -1,11 +1,9 @@
 package com.sofka.postcommentsuplementary.entity;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
-public class UserLikeDto {
+public class UserLikeDTO {
 
     private Integer userId;
 
@@ -13,16 +11,16 @@ public class UserLikeDto {
 
     private String dni;
 
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentDTO> comments = new ArrayList<>();
     //private Set<Comment> comments = new LinkedHashSet<>();
 
-    private List<Post> posts = new ArrayList<>();
+    private List<PostDTO> posts = new ArrayList<>();
     //private Set<Post> posts = new LinkedHashSet<>();
 
 
     //Constructors
 
-    public UserLikeDto(Integer userId, String userName, String dni, List<Comment> comments, List<Post> posts) {
+    public UserLikeDTO(Integer userId, String userName, String dni, List<CommentDTO> comments, List<PostDTO> posts) {
         this.userId = userId;
         this.userName = userName;
         this.dni = dni;
@@ -30,9 +28,12 @@ public class UserLikeDto {
         this.posts = posts;
     }
 
-    public UserLikeDto(String userName, String dni) {
+    public UserLikeDTO(String userName, String dni) {
         this.userName = userName;
         this.dni = dni;
+    }
+
+    public UserLikeDTO() {
     }
 
     //methods
@@ -61,19 +62,19 @@ public class UserLikeDto {
         this.dni = dni;
     }
 
-    public List<Comment> getComments() {
+    public List<CommentDTO> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<CommentDTO> comments) {
         this.comments = comments;
     }
 
-    public List<Post> getPosts() {
+    public List<PostDTO> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<Post> posts) {
+    public void setPosts(List<PostDTO> posts) {
         this.posts = posts;
     }
 

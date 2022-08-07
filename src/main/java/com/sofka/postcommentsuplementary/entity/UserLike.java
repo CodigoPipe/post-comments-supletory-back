@@ -50,6 +50,9 @@ public class UserLike {
         this.dni = dni;
     }
 
+    public UserLike() {
+    }
+
     //methods
 
     public Integer getUserId() {

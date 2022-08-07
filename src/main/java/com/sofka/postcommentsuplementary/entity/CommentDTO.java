@@ -15,15 +15,15 @@ public class CommentDTO {
 
     private Integer numberOfLikesComment;
 
-    private Post postIdpost;
+    private PostDTO postIdpost;
 
-    private List<UserLike> userLikes = new ArrayList<>();
+    private List<UserLikeDTO> userLikes = new ArrayList<>();
     //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
 
     //Constructors
 
-    public CommentDTO(Integer commentId, String commentContent, Integer numberOfLikesComment, Post postIdpost, List<UserLike> userLikes) {
+    public CommentDTO(Integer commentId, String commentContent, Integer numberOfLikesComment, PostDTO postIdpost, List<UserLikeDTO> userLikes) {
         this.commentId = commentId;
         this.commentContent = commentContent;
         this.numberOfLikesComment = numberOfLikesComment;
@@ -31,7 +31,7 @@ public class CommentDTO {
         this.userLikes = userLikes;
     }
 
-    public CommentDTO(String commentContent, Post postIdpost) {
+    public CommentDTO(String commentContent, PostDTO postIdpost) {
         this.commentContent = commentContent;
         this.postIdpost = postIdpost;
         this.numberOfLikesComment = 0;
@@ -66,19 +66,19 @@ public class CommentDTO {
         this.numberOfLikesComment = numberOfLikesComment;
     }
 
-    public Post getPostIdpost() {
+    public PostDTO getPostIdpost() {
         return postIdpost;
     }
 
-    public void setPostIdpost(Post postIdpost) {
+    public void setPostIdpost(PostDTO postIdpost) {
         this.postIdpost = postIdpost;
     }
 
-    public List<UserLike> getUserLikes() {
+    public List<UserLikeDTO> getUserLikes() {
         return userLikes;
     }
 
-    public void setUserLikes(List<UserLike> userLikes) {
+    public void setUserLikes(List<UserLikeDTO> userLikes) {
         this.userLikes = userLikes;
     }
 
