@@ -24,6 +24,7 @@ public class PostServiceImpl implements PostService{
         return MapperPost.returnPostDTO(postRepo.save(post));
     }
 
+    //SOLO para probar postmanm, borrar al final
     @Override
     public List<Post> findAllPost() {
         return postRepo.findAll();

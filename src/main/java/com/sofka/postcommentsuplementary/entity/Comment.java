@@ -48,6 +48,9 @@ public class Comment {
         this.numberOfLikesComment = 0;
     }
 
+    public Comment() {
+    }
+
     //methods
 
     public Integer getCommentId() {

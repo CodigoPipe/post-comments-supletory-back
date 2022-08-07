@@ -37,6 +37,9 @@ public class CommentDTO {
         this.numberOfLikesComment = 0;
     }
 
+    public CommentDTO() {
+    }
+
     //methods
 
     public Integer getCommentId() {
