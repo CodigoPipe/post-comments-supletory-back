@@ -5,11 +5,11 @@ import com.sofka.postcommentsuplementary.entity.PostDTO;
 
 public class MapperPost {
 
-    private Post returnPost(PostDTO postDTO){
+    public Post returnPost(PostDTO postDTO){
         return new Post(postDTO.getTitle(), postDTO.getContent());
     }
 
-    private PostDTO returnPostDTO(Post post){
+    public PostDTO returnPostDTO(Post post){
         return new PostDTO(post.getPostId(), post.getTitle(), post.getContent(), post.getNumberOfLikes(), post.getUserLikes(), post.getComments());
     }
 
