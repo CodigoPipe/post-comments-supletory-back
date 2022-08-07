@@ -7,10 +7,10 @@ import java.util.List;
 
 public class MapperPost {
 
-    MapperUserLike mapperUserLike = new MapperUserLike();
-    MapperComment mapperComment = new MapperComment();
+    //MapperUserLike mapperUserLike = new MapperUserLike();
+    //MapperComment mapperComment = new MapperComment();
 
-    public Post returnPost(PostDTO postDTO){
+    public static Post returnPost(PostDTO postDTO){
         Post post = new Post();
         post.setPostId(postDTO.getPostId());
         post.setTitle(postDTO.getTitle());
@@ -19,20 +19,20 @@ public class MapperPost {
 
         List<UserLike> userLikes = new ArrayList<>();
         for(UserLikeDTO like: postDTO.getUserLikes()){
-            userLikes.add(mapperUserLike.returnUserLike(like));
+            userLikes.add(MapperUserLike.returnUserLike(like));
         }
         post.setUserLikes(userLikes);
 
         List<Comment> comments = new ArrayList<>();
         for(CommentDTO comment: postDTO.getComments()){
-            comments.add(mapperComment.returnComment(comment));
+            comments.add(MapperComment.returnComment(comment));
         }
         post.setComments(comments);
 
         return post;
     }
 
-    public PostDTO returnPostDTO(Post post){
+    public static PostDTO returnPostDTO(Post post){
 
         PostDTO postDTO = new PostDTO();
         postDTO.setPostId(post.getPostId());
@@ -42,13 +42,13 @@ public class MapperPost {
 
         List<UserLikeDTO> userLikes = new ArrayList<>();
         for(UserLike like: post.getUserLikes()){
-            userLikes.add(mapperUserLike.returnUserLikeDTO(like));
+            userLikes.add(MapperUserLike.returnUserLikeDTO(like));
         }
         postDTO.setUserLikes(userLikes);
 
         List<CommentDTO> comments = new ArrayList<>();
         for(Comment comment: post.getComments()){
-            comments.add(mapperComment.returnCommentDTO(comment));
+            comments.add(MapperComment.returnCommentDTO(comment));
         }
         postDTO.setComments(comments);
 

@@ -11,19 +11,19 @@ import java.util.List;
 public class MapperComment {
 
 
-    MapperUserLike mapperUserLike = new MapperUserLike();
-    MapperPost mapperPost = new MapperPost();
-    public Comment returnComment(CommentDTO commentDTO){
+    //MapperUserLike mapperUserLike = new MapperUserLike();
+    //MapperPost mapperPost = new MapperPost();
+    public static Comment returnComment(CommentDTO commentDTO){
 
         Comment comment = new Comment();
         comment.setCommentId(commentDTO.getCommentId());
         comment.setCommentContent(commentDTO.getCommentContent());
         comment.setNumberOfLikesComment(commentDTO.getNumberOfLikesComment());
-        comment.setPostIdpost(mapperPost.returnPost(commentDTO.getPostIdpost()));
+        comment.setPostIdpost(MapperPost.returnPost(commentDTO.getPostIdpost()));
 
         List<UserLike> userLikes = new ArrayList<>();
         for(UserLikeDTO like: commentDTO.getUserLikes()){
-            userLikes.add(mapperUserLike.returnUserLike(like));
+            userLikes.add(MapperUserLike.returnUserLike(like));
         }
         comment.setUserLikes(userLikes);
 
@@ -31,17 +31,17 @@ public class MapperComment {
 
     }
 
-    public CommentDTO returnCommentDTO(Comment comment){
+    public static CommentDTO returnCommentDTO(Comment comment){
 
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setCommentId(comment.getCommentId());
         commentDTO.setCommentContent(comment.getCommentContent());
         commentDTO.setNumberOfLikesComment(comment.getNumberOfLikesComment());
-        commentDTO.setPostIdpost(mapperPost.returnPostDTO(comment.getPostIdpost()));
+        commentDTO.setPostIdpost(MapperPost.returnPostDTO(comment.getPostIdpost()));
 
         List<UserLikeDTO> userLikes = new ArrayList<>();
         for(UserLike like: comment.getUserLikes()){
-            userLikes.add(mapperUserLike.returnUserLikeDTO(like));
+            userLikes.add(MapperUserLike.returnUserLikeDTO(like));
         }
         commentDTO.setUserLikes(userLikes);
 

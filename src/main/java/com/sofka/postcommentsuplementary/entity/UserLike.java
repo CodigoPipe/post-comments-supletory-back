@@ -1,5 +1,8 @@
 package com.sofka.postcommentsuplementary.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -24,6 +27,7 @@ public class UserLike {
     @JoinTable(name = "user_like_has_comment",
             joinColumns = @JoinColumn(name = "user_like_iduser_like"),
             inverseJoinColumns = @JoinColumn(name = "comment_idcomment"))
+    @JsonBackReference
     private List<Comment> comments = new ArrayList<>();
     //private Set<Comment> comments = new LinkedHashSet<>();
 
@@ -31,6 +35,7 @@ public class UserLike {
     @JoinTable(name = "user_like_has_post",
             joinColumns = @JoinColumn(name = "user_like_iduser_like"),
             inverseJoinColumns = @JoinColumn(name = "post_idpost"))
+    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
     //private Set<Post> posts = new LinkedHashSet<>();
 

@@ -1,5 +1,8 @@
 package com.sofka.postcommentsuplementary.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -22,12 +25,14 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "post_idpost", nullable = false)
+    @JsonBackReference
     private Post postIdpost;
 
     @ManyToMany
     @JoinTable(name = "user_like_has_comment",
             joinColumns = @JoinColumn(name = "comment_idcomment"),
             inverseJoinColumns = @JoinColumn(name = "user_like_iduser_like"))
+    @JsonBackReference
     private List<UserLike> userLikes = new ArrayList<>();
     //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
