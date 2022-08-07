@@ -30,6 +30,9 @@ public class Post {
     @OneToMany(mappedBy = "postIdpost")
     private Set<Comment> comments = new LinkedHashSet<>();
 
+
+
+    //methods
     public Integer getId() {
         return id;
     }

@@ -30,6 +30,9 @@ public class UserLike {
             inverseJoinColumns = @JoinColumn(name = "post_idpost"))
     private Set<Post> posts = new LinkedHashSet<>();
 
+
+
+    //methods
     public Integer getId() {
         return id;
     }

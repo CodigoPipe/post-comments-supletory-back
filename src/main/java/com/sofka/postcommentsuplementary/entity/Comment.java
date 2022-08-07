@@ -28,6 +28,10 @@ public class Comment {
             inverseJoinColumns = @JoinColumn(name = "user_like_iduser_like"))
     private Set<UserLike> userLikes = new LinkedHashSet<>();
 
+
+
+
+    //methods
     public Integer getId() {
         return id;
     }
