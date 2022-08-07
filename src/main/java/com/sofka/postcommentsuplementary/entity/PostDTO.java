@@ -1,35 +1,21 @@
 package com.sofka.postcommentsuplementary.entity;
 
-import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "post")
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idpost", nullable = false)
+public class PostDTO {
+
     private Integer postId;
 
-    @Column(name = "title", nullable = false, length = 50)
     private String title;
 
-    @Column(name = "content")
     private String content;
 
-    @Column(name = "number_of_likes", nullable = false)
     private Integer numberOfLikes;
 
-    @ManyToMany
-    @JoinTable(name = "user_like_has_post",
-            joinColumns = @JoinColumn(name = "post_idpost"),
-            inverseJoinColumns = @JoinColumn(name = "user_like_iduser_like"))
     private Set<UserLike> userLikes = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "postIdpost")
     private Set<Comment> comments = new LinkedHashSet<>();
-
 
 
     //methods
@@ -81,6 +67,4 @@ public class Post {
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
-
-
 }
