@@ -1,6 +1,8 @@
 package com.sofka.postcommentsuplementary.entity;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 public class PostDTO {
@@ -13,9 +15,11 @@ public class PostDTO {
 
     private Integer numberOfLikes;
 
-    private Set<UserLike> userLikes = new LinkedHashSet<>();
+    private List<UserLike> userLikes = new ArrayList<>();
+    //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
-    private Set<Comment> comments = new LinkedHashSet<>();
+    private List<Comment> comments = new ArrayList<>();
+    //private Set<Comment> comments = new LinkedHashSet<>();
 
 
     //methods
@@ -52,19 +56,21 @@ public class PostDTO {
         this.numberOfLikes = numberOfLikes;
     }
 
-    public Set<UserLike> getUserLikes() {
+    public List<UserLike> getUserLikes() {
         return userLikes;
     }
 
-    public void setUserLikes(Set<UserLike> userLikes) {
+    public void setUserLikes(List<UserLike> userLikes) {
         this.userLikes = userLikes;
     }
 
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+
 }

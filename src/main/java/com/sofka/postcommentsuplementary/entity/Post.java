@@ -1,7 +1,9 @@
 package com.sofka.postcommentsuplementary.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,10 +27,12 @@ public class Post {
     @JoinTable(name = "user_like_has_post",
             joinColumns = @JoinColumn(name = "post_idpost"),
             inverseJoinColumns = @JoinColumn(name = "user_like_iduser_like"))
-    private Set<UserLike> userLikes = new LinkedHashSet<>();
+    private List<UserLike> userLikes = new ArrayList<>();
+    //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "postIdpost")
-    private Set<Comment> comments = new LinkedHashSet<>();
+    private List<Comment> comments = new ArrayList<>();
+    //private Set<Comment> comments = new LinkedHashSet<>();
 
 
 
@@ -66,19 +70,19 @@ public class Post {
         this.numberOfLikes = numberOfLikes;
     }
 
-    public Set<UserLike> getUserLikes() {
+    public List<UserLike> getUserLikes() {
         return userLikes;
     }
 
-    public void setUserLikes(Set<UserLike> userLikes) {
+    public void setUserLikes(List<UserLike> userLikes) {
         this.userLikes = userLikes;
     }
 
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
