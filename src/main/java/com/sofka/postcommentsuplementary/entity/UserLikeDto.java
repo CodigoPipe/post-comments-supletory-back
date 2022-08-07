@@ -20,6 +20,21 @@ public class UserLikeDto {
     //private Set<Post> posts = new LinkedHashSet<>();
 
 
+    //Constructors
+
+    public UserLikeDto(Integer userId, String userName, String dni, List<Comment> comments, List<Post> posts) {
+        this.userId = userId;
+        this.userName = userName;
+        this.dni = dni;
+        this.comments = comments;
+        this.posts = posts;
+    }
+
+    public UserLikeDto(String userName, String dni) {
+        this.userName = userName;
+        this.dni = dni;
+    }
+
     //methods
 
     public Integer getUserId() {

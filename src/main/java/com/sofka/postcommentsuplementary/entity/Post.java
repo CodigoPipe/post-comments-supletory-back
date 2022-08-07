@@ -34,7 +34,22 @@ public class Post {
     private List<Comment> comments = new ArrayList<>();
     //private Set<Comment> comments = new LinkedHashSet<>();
 
+    //Constructors
 
+    public Post(Integer postId, String title, String content, Integer numberOfLikes, List<UserLike> userLikes, List<Comment> comments) {
+        this.postId = postId;
+        this.title = title;
+        this.content = content;
+        this.numberOfLikes = numberOfLikes;
+        this.userLikes = userLikes;
+        this.comments = comments;
+    }
+
+    public Post(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.numberOfLikes = 0;
+    }
 
     //methods
 

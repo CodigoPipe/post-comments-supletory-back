@@ -32,6 +32,21 @@ public class Comment {
     //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
 
+    //constructors
+
+    public Comment(Integer commentId, String commentContent, Integer numberOfLikesComment, Post postIdpost, List<UserLike> userLikes) {
+        this.commentId = commentId;
+        this.commentContent = commentContent;
+        this.numberOfLikesComment = numberOfLikesComment;
+        this.postIdpost = postIdpost;
+        this.userLikes = userLikes;
+    }
+
+    public Comment(String commentContent, Post postIdpost) {
+        this.commentContent = commentContent;
+        this.postIdpost = postIdpost;
+        this.numberOfLikesComment = 0;
+    }
 
     //methods
 

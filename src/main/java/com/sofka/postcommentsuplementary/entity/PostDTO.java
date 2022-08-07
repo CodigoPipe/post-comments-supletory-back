@@ -22,6 +22,23 @@ public class PostDTO {
     //private Set<Comment> comments = new LinkedHashSet<>();
 
 
+    //Constructor
+
+    public PostDTO(Integer postId, String title, String content, Integer numberOfLikes, List<UserLike> userLikes, List<Comment> comments) {
+        this.postId = postId;
+        this.title = title;
+        this.content = content;
+        this.numberOfLikes = numberOfLikes;
+        this.userLikes = userLikes;
+        this.comments = comments;
+    }
+
+    public PostDTO(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.numberOfLikes = 0;
+    }
+
     //methods
 
     public Integer getPostId() {

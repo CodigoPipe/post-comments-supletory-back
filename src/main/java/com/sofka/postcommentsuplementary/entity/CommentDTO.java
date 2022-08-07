@@ -21,6 +21,21 @@ public class CommentDTO {
     //private Set<UserLike> userLikes = new LinkedHashSet<>();
 
 
+    //Constructors
+
+    public CommentDTO(Integer commentId, String commentContent, Integer numberOfLikesComment, Post postIdpost, List<UserLike> userLikes) {
+        this.commentId = commentId;
+        this.commentContent = commentContent;
+        this.numberOfLikesComment = numberOfLikesComment;
+        this.postIdpost = postIdpost;
+        this.userLikes = userLikes;
+    }
+
+    public CommentDTO(String commentContent, Post postIdpost) {
+        this.commentContent = commentContent;
+        this.postIdpost = postIdpost;
+        this.numberOfLikesComment = 0;
+    }
 
     //methods
 
