@@ -9,6 +9,8 @@ public interface PostService {
 
     PostDTO createPost(PostDTO postDTO);
 
+    void deletePost(Integer postId);
+
     //esto es solo para probar en postman, borrar despues
     List<Post> findAllPost();
 

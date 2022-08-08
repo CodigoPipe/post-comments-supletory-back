@@ -21,7 +21,17 @@ public class PostServiceImpl implements PostService{
     public PostDTO createPost(PostDTO postDTO) {
 
         Post post = MapperPost.returnPost(postDTO);
+        post.setNumberOfLikes(0);
         return MapperPost.returnPostDTO(postRepo.save(post));
+    }
+
+    @Override
+    public void deletePost(Integer postId) {
+
+        Post post = postRepo.findById(postId).get();
+        postRepo.delete(post);
+
+
     }
 
     //SOLO para probar postmanm, borrar al final

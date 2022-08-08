@@ -45,7 +45,7 @@ public class Post {
         this.postId = postId;
         this.title = title;
         this.content = content;
-        this.numberOfLikes = numberOfLikes;
+        this.numberOfLikes = 0;
         this.userLikes = userLikes;
         this.comments = comments;
     }

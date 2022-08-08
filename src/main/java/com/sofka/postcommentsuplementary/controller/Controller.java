@@ -46,6 +46,12 @@ public class Controller {
         return postService.updatePost(postDTO);
     }
 
+
+    @DeleteMapping("delete/post/{postId}")
+    public void deletePost(@PathVariable Integer postId){
+        postService.deletePost(postId);
+    }
+
     @PostMapping("create/comment")
     public CommentDTO createComment(@RequestBody CommentDTO commentDTO){
         return commentService.createComment(commentDTO);
