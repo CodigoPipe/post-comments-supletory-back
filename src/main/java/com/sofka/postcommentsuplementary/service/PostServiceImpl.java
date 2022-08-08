@@ -30,5 +30,16 @@ public class PostServiceImpl implements PostService{
         return postRepo.findAll();
     }
 
+    @Override
+    public PostDTO updatePost(PostDTO postDTO) {
+
+        Post post = postRepo.findById(postDTO.getPostId()).get();
+        post.setTitle(postDTO.getTitle());
+        post.setContent(postDTO.getContent());
+
+        return MapperPost.returnPostDTO(postRepo.save(post));
+
+    }
+
 
 }

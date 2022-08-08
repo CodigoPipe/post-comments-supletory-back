@@ -41,6 +41,11 @@ public class Controller {
         return postService.createPost(postDTO);
     }
 
+    @PutMapping("update/post")
+    public PostDTO updatePost(@RequestBody PostDTO postDTO){
+        return postService.updatePost(postDTO);
+    }
+
     @PostMapping("create/comment")
     public CommentDTO createComment(@RequestBody CommentDTO commentDTO){
         return commentService.createComment(commentDTO);
