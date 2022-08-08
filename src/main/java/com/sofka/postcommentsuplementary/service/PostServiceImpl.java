@@ -4,7 +4,9 @@ package com.sofka.postcommentsuplementary.service;
 import com.sofka.postcommentsuplementary.entity.Post;
 import com.sofka.postcommentsuplementary.entity.PostDTO;
 import com.sofka.postcommentsuplementary.mapper.MapperPost;
+import com.sofka.postcommentsuplementary.mapperUpdate.PostUpdateMapper;
 import com.sofka.postcommentsuplementary.repository.PostRepo;
+import com.sofka.postcommentsuplementary.updateDTO.PostUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,15 @@ public class PostServiceImpl implements PostService{
         Post post = MapperPost.returnPost(postDTO);
         post.setNumberOfLikes(0);
         return MapperPost.returnPostDTO(postRepo.save(post));
+    }
+
+    @Override
+    public PostUpdateDTO updatePost(PostUpdateDTO postUpdateDTO) {
+        Post post = postRepo.findById(postUpdateDTO.getPostId()).get();
+        post.setTitle(postUpdateDTO.getTitle());
+        post.setContent(postUpdateDTO.getContent());
+
+        return PostUpdateMapper.returnPostUpdateDTO(postRepo.save(post));
     }
 
     @Override

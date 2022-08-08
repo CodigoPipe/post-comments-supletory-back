@@ -4,7 +4,9 @@ package com.sofka.postcommentsuplementary.service;
 import com.sofka.postcommentsuplementary.entity.Comment;
 import com.sofka.postcommentsuplementary.entity.CommentDTO;
 import com.sofka.postcommentsuplementary.mapper.MapperComment;
+import com.sofka.postcommentsuplementary.mapperUpdate.CommentUpdateMapper;
 import com.sofka.postcommentsuplementary.repository.CommentRepo;
+import com.sofka.postcommentsuplementary.updateDTO.CommentUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,13 @@ public class CommentServiceImpl implements CommentService{
         comment.setNumberOfLikesComment(0);
         return MapperComment.returnCommentDTO(commentRepo.save(comment));
 
+    }
+
+    @Override
+    public CommentUpdateDTO updateComment(CommentUpdateDTO commentUpdateDTO) {
+         Comment comment = commentRepo.findById(commentUpdateDTO.getCommentId()).get();
+         comment.setCommentContent(commentUpdateDTO.getCommentContent());
+         return CommentUpdateMapper.returnCommentUpdateDTO(commentRepo.save(comment));
     }
 
     @Override

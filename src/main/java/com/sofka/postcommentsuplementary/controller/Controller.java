@@ -7,6 +7,8 @@ import com.sofka.postcommentsuplementary.entity.Post;
 import com.sofka.postcommentsuplementary.entity.PostDTO;
 import com.sofka.postcommentsuplementary.service.CommentService;
 import com.sofka.postcommentsuplementary.service.PostService;
+import com.sofka.postcommentsuplementary.updateDTO.CommentUpdateDTO;
+import com.sofka.postcommentsuplementary.updateDTO.PostUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,12 +43,15 @@ public class Controller {
         return postService.createPost(postDTO);
     }
 
+    @PutMapping("update/post")
+    public PostUpdateDTO updatePost(@RequestBody PostUpdateDTO postUpdateDTO){
+        return postService.updatePost(postUpdateDTO);
+    }
+
+
+
 
     //COMMENT METHODS
-    /*@PutMapping("update/post")
-    public PostDTO updatePost(@RequestBody PostDTO postDTO){
-        return postService.updatePost(postDTO);
-    }*/
 
     @PostMapping("create/comment")
     public CommentDTO createComment(@RequestBody CommentDTO commentDTO){
@@ -56,6 +61,11 @@ public class Controller {
     @GetMapping("all/comments")
     public List<Comment> getAllComments(){
         return commentService.findAllComments();
+    }
+
+    @PutMapping("update/comment")
+    public CommentUpdateDTO updateComment(@RequestBody CommentUpdateDTO commentUpdateDTO){
+        return commentService.updateComment(commentUpdateDTO);
     }
 
     @DeleteMapping("delete/comment/{commentId}")
