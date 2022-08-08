@@ -9,5 +9,7 @@ public interface CommentService {
 
     CommentDTO createComment(CommentDTO commentDTO);
 
+    void deleteComment(Integer commentId);
+
     List<Comment> findAllComments();
 }

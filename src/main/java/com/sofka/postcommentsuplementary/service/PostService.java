@@ -14,7 +14,7 @@ public interface PostService {
     //esto es solo para probar en postman, borrar despues
     List<Post> findAllPost();
 
-    PostDTO updatePost(PostDTO postDTO);
+    //PostDTO updatePost(PostDTO postDTO);
 
 
 }

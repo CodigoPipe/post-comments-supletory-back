@@ -40,7 +40,7 @@ public class PostServiceImpl implements PostService{
         return postRepo.findAll();
     }
 
-    @Override
+    /*@Override
     public PostDTO updatePost(PostDTO postDTO) {
 
         Post post = postRepo.findById(postDTO.getPostId()).get();
@@ -49,7 +49,7 @@ public class PostServiceImpl implements PostService{
 
         return MapperPost.returnPostDTO(postRepo.save(post));
 
-    }
+    }*/
 
 
 }

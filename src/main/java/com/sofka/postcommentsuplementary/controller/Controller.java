@@ -41,10 +41,10 @@ public class Controller {
         return postService.createPost(postDTO);
     }
 
-    @PutMapping("update/post")
+    /*@PutMapping("update/post")
     public PostDTO updatePost(@RequestBody PostDTO postDTO){
         return postService.updatePost(postDTO);
-    }
+    }*/
 
 
     @DeleteMapping("delete/post/{postId}")
@@ -56,6 +56,13 @@ public class Controller {
     public CommentDTO createComment(@RequestBody CommentDTO commentDTO){
         return commentService.createComment(commentDTO);
     }
+
+    @DeleteMapping("delete/comment/{commentId}")
+    public void deleteCooment(@PathVariable Integer commentId){
+        commentService.deleteComment(commentId);
+    }
+
+
 
 
 }
