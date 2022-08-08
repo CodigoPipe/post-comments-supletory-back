@@ -24,15 +24,15 @@ public class Controller {
     @Autowired
     private CommentService commentService;
 
-    //Borrar al final, solo para probar
+    //POST METHODS
     @GetMapping("all/posts")
     public List<Post> getAllPosts(){
         return postService.findAllPost();
     }
 
-    @GetMapping("all/comments")
-    public List<Comment> getAllComments(){
-        return commentService.findAllComments();
+    @DeleteMapping("delete/post/{postId}")
+    public void deletePost(@PathVariable Integer postId){
+        postService.deletePost(postId);
     }
 
 
@@ -41,26 +41,33 @@ public class Controller {
         return postService.createPost(postDTO);
     }
 
+
+    //COMMENT METHODS
     /*@PutMapping("update/post")
     public PostDTO updatePost(@RequestBody PostDTO postDTO){
         return postService.updatePost(postDTO);
     }*/
-
-
-    @DeleteMapping("delete/post/{postId}")
-    public void deletePost(@PathVariable Integer postId){
-        postService.deletePost(postId);
-    }
 
     @PostMapping("create/comment")
     public CommentDTO createComment(@RequestBody CommentDTO commentDTO){
         return commentService.createComment(commentDTO);
     }
 
+    @GetMapping("all/comments")
+    public List<Comment> getAllComments(){
+        return commentService.findAllComments();
+    }
+
     @DeleteMapping("delete/comment/{commentId}")
     public void deleteCooment(@PathVariable Integer commentId){
         commentService.deleteComment(commentId);
     }
+
+
+
+
+
+
 
 
 
